@@ -284,13 +284,20 @@ int main(){
 					cout << "TEST: ";
 					krupier.wyswietl_pkt();
 
-                    krupier.losowe_dobieranie();
+                 
 					// DOROBIC TUTAL ELMENT LOSOY, CZY KRUPIER DOPIERA CZY NIE, A JAK DOPIERA TO DO <=21 SUMY PKT
-                    if(krupier.temp2==1) {
-                    cout << "Dobieram" << endl;
-						
-                    }
-
+                    while(krupier.punkty<21){
+					krupier.losowe_dobieranie();
+						if(krupier.temp2==1) {
+						cout << "Krupier dobiera karte" << endl;
+							talia1.rozdanie();
+							krupier.punkty+=talia1.ktora_karta;
+							krupier.posiadane_karty[k]=talia1.karta;
+							k++;
+							krupier.wyswietl_karty(k);
+							krupier.wyswietl_pkt();
+						}
+					}
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
 												// tuatj jak ktos da y to aby grac dalej
 					if(wybor2=='y' || wybor2=='Y') {
