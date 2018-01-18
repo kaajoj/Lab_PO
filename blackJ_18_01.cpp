@@ -96,7 +96,7 @@ class Gra {
 
 void menu(){
 	cout << "-------------";
-	cout << "  BLACKPAK  ";
+	cout << "  BLACKJACK  ";
 	cout << "-------------" << endl;
     cout << "   1 - dobranie karty" << endl;
     cout << "   2 - sprawdzenie wyniku" << endl;
