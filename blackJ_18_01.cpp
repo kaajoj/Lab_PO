@@ -1,6 +1,8 @@
 // Karol Nowak
 // I6X1N1
 
+// ZMIANA
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -286,7 +288,7 @@ int main(){
 					// DOROBIC TUTAL ELMENT LOSOY, CZY KRUPIER DOPIERA CZY NIE, A JAK DOPIERA TO DO <=21 SUMY PKT
                     if(krupier.temp2==1) {
                     cout << "Dobieram" << endl;
-
+						
                     }
 
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
