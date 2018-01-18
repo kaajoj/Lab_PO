@@ -1,3 +1,4 @@
 przecwicyc git pull - zmienc na stronie, git merge
 git branch - zeminic cos w branch i zmergowac
 test zmiany
+test zmiany2
