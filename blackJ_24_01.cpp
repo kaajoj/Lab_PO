@@ -103,8 +103,8 @@ int main(){
 	gracz.punkty=0;
 
 	Karty talia1;
-	// Karty talia2;
 	talia1.temp=0;
+	talia1.ktora_karta=0;
 
 	menu();
 
@@ -200,9 +200,10 @@ int main(){
 							krupier.punkty+=talia1.ktora_karta;
 							krupier.posiadane_karty[k]=talia1.karta;
 							k++;
+							cout << endl;
 							//cout << talia1.karta << endl; // test
 							// cout << "TEST: ";
-							krupier.wyswietl_pkt();
+							//  krupier.wyswietl_pkt(); // TEST - ilosc punktow krupiera
 
 				}
 			} else {
