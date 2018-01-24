@@ -6,7 +6,7 @@
 #include <ctime>
 
 // ZROBIC ZEBY KARTY NIE DUBLOWALY SIE, PRZYPISYWAC ZERA I DRUGA TALIE DOLOZYC
-
+// v2
 
 using namespace std;
 
