@@ -64,10 +64,10 @@ class Gra {
 	int sprawdzenie(int a, int b){
 		if(a==b){
 		cout << "Remis" << endl << endl;
-		cout << "Jeszcze raz? (y/n)"<< endl;			
+		cout << "Jeszcze raz? (y/n)"<< endl;
 		cin >> wybor2;
 		} else if((a>b || b>21) && a<=21) {				// wygrana jak krupier ma wiecej niz 21 b>21
-		  cout << "Wygrales" << endl;
+		  cout << "Wygrales" << endl << endl;
 		  if (a==21) cout << "Blackjack!" << endl << endl;
 		  cout << "Jeszcze raz? (y/n)"<< endl;
 		  cin >> wybor2;
@@ -145,7 +145,7 @@ int main(){
 	k++;
 	cout << endl;
     //cout << talia1.karta << endl; // test
-	//cout<< "TEST: ";	
+	//cout<< "TEST: ";
     // krupier.wyswietl_pkt(); // TEST - ilosc punktow krupiera
 
 		for(;;){
@@ -230,7 +230,7 @@ int main(){
 					// krupier.wyswietl_pkt();
 
 					if(gracz.punkty<21){
-						cout << "Dobrac kolejna karte? (y/n)" << endl;
+						cout << endl << "Dobrac kolejna karte? (y/n)" << endl;
 						cin >> wybor3;
 							while(wybor3!='n' || wybor3!='N'){
 								if(wybor3=='y' || wybor3=='Y') {
@@ -250,12 +250,12 @@ int main(){
 									cout << "KRUPIER" << endl;
 									krupier.wyswietl_karty(1);
 									// krupier.wyswietl_pkt();
-									cout << "Dobrac kolejna karte? (y/n)" << endl << endl;          // TUTAJ POWINNIEN BYC ALGORYTM DOBIERANI PRZEZ KRUPIERA, TO SAMO CO NA DOLE JAK WCISNIE SIE 2
+									cout << endl << "Dobrac kolejna karte? (y/n)" << endl << endl;          // TUTAJ POWINNIEN BYC ALGORYTM DOBIERANI PRZEZ KRUPIERA, TO SAMO CO NA DOLE JAK WCISNIE SIE 2
 									cin >> wybor3;
 								}
 							if(wybor3!='n' || wybor3!='N') {
-										
-							if(krupier.punkty<20){
+
+							if(krupier.punkty<21){
 							krupier.losowe_dobieranie();
 								if(krupier.temp2==1 || krupier.temp2==3) {
 								cout << "Krupier dobiera karte" << endl;
@@ -264,18 +264,19 @@ int main(){
 									krupier.punkty+=talia1.ktora_karta;
 									krupier.posiadane_karty[k]=talia1.karta;
 									k++;
-									krupier.wyswietl_karty(k);
-									krupier.wyswietl_pkt();
+									// krupier.wyswietl_karty(k);
+									// krupier.wyswietl_pkt();
 								} else cout << "Krupier nie dobiera karty" << endl;
 							}
 							//gra.sprawdzenie(gracz.punkty, krupier.punkty);
-												
-								
+
+
 								break;
 							}
 
 						}
 					}
+					krupier.wyswietl_karty(k);
 					krupier.wyswietl_pkt();
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
 
@@ -310,9 +311,11 @@ int main(){
 							k++;
 							krupier.wyswietl_karty(k);
 							krupier.wyswietl_pkt();
-						} else cout << "Krupier nie dobiera karty" << endl;
-						
-					}	
+						} else {
+						    cout << "Krupier nie dobiera karty" << endl;
+						    krupier.wyswietl_karty(k);
+						}
+					}
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
 												// tuatj jak ktos da y to aby grac dalej
 					if(wybor2=='y' || wybor2=='Y') {
