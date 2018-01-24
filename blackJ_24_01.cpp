@@ -5,16 +5,13 @@
 #include <cstdlib>
 #include <ctime>
 
-// ZROBIC ZEBY KARTY NIE DUBLOWALY SIE, PRZYPISYWAC ZERA I DRUGA TALIE DOLOZYC
-// v2
-
 using namespace std;
 
 int wybor=0;
-char wybor2='0'; // wybor czy grac ponownie
-char wybor3='0'; // wybor do dobierania
-int j=0;	// licznik dla gracza
-int k=0;  // licznik dla krupiera
+char wybor2='0';	 // wybor czy grac ponownie
+char wybor3='0';	 // wybor do dobierania
+int j=0;			// licznik dla gracza
+int k=0;  			// licznik dla krupiera
 
 
 class Gracz {
@@ -22,7 +19,7 @@ class Gracz {
 	string nazwa;
 	int punkty;
 	string posiadane_karty[10];
-	int temp2; // zmiena do obslugi losowosci dobierania krupiera
+	int temp2; 						// zmiena do obslugi losowosci dobierania krupiera
 
 	void wyswietl_pkt(){
 	cout << "Suma punktow: " << punkty << endl << endl;
@@ -39,7 +36,6 @@ class Gracz {
 	int losowe_dobieranie(){
 	temp2 = rand()%5;
 	cout << temp2 << endl;
-	//wartosc_karty[temp]=0;	i dodac ifa w main ze jak ktora_karta = 0 to jeszcze raz rozdanie
 	}
 };
 
@@ -47,18 +43,16 @@ class Gracz {
 class Karty {
     public:
     int temp;
-    string wartosc[52]={"W2","W3","W4","W5","W6","W7","W8","W9","W10","WJ","WD","WK","WA","Z2","Z3","Z4","Z5","Z6","Z7","Z8","Z9","Z10","ZJ","ZD","ZK","ZA","D2","D3","D4","D5","D6","D7","D8","D9","D10","DJ","DD","DK","DA","C2","C3","C4","C5","C6","C7","C8","C9","C10","CJ","CD","CK","CA"};
-	int wartosc_karty[52]={2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11};
+    string wartosc[104]={"1W2","1W3","1W4","1W5","1W6","1W7","1W8","1W9","1W10","1WJ","1WD","1WK","1WA","1Z2","1Z3","1Z4","1Z5","1Z6","1Z7","1Z8","1Z9","1Z10","1ZJ","1ZD","1ZK","1ZA","1D2","1D3","1D4","1D5","1D6","1D7","1D8","1D9","1D10","1DJ","1DD","1DK","1DA","1C2","1C3","1C4","1C5","1C6","1C7","1C8","1C9","1C10","1CJ","1CD","1CK","1CA","2W2","2W3","2W4","2W5","2W6","2W7","2W8","2W9","2W20","2WJ","2WD","2WK","2WA","2Z2","2Z3","2Z4","2Z5","2Z6","2Z7","2Z8","2Z9","2Z20","2ZJ","2ZD","2ZK","2ZA","2D2","2D3","2D4","2D5","2D6","2D7","2D8","2D9","2D20","2DJ","2DD","2DK","2DA","2C2","2C3","2C4","2C5","2C6","2C7","2C8","2C9","2C20","2CJ","2CD","2CK","2CA"};
+	int wartosc_karty[104]={2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11};
 	string karta;
-
 
 	int ktora_karta;
 
 	void rozdanie(){
-	temp = rand()%52+2;
+	temp = rand()%104+2;
 	karta = wartosc[temp];
 	ktora_karta = wartosc_karty[temp];
-	//wartosc_karty[temp]=0;	i dodac ifa w main ze jak ktora_karta = 0 to jeszcze raz rozdanie
 	wartosc_karty[temp]=0;
 	temp=0;
 	}
@@ -265,6 +259,23 @@ int main(){
 									cin >> wybor3;
 								}
 							if(wybor3!='n' || wybor3!='N') {
+										
+							if(krupier.punkty<20){
+							krupier.losowe_dobieranie();
+								if(krupier.temp2==1 || krupier.temp2==3) {
+								cout << "Krupier dobiera karte" << endl;
+									talia1.rozdanie();
+									while (talia1.ktora_karta==0)  talia1.rozdanie();
+									krupier.punkty+=talia1.ktora_karta;
+									krupier.posiadane_karty[k]=talia1.karta;
+									k++;
+									krupier.wyswietl_karty(k);
+									krupier.wyswietl_pkt();
+								} else cout << "Krupier nie dobiera karty" << endl;
+							}
+							gra.sprawdzenie(gracz.punkty, krupier.punkty);
+												
+								
 								break;
 							}
 
