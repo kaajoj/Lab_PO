@@ -1,8 +1,6 @@
 // Karol Nowak
 // I6X1N1
 
-// ZMIANA
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
