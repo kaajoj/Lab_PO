@@ -91,7 +91,6 @@ void menu(){
 }
 
 
-
 int main(){
 	srand(time(NULL));
 
@@ -152,7 +151,7 @@ int main(){
 
 			if (gracz.punkty > 21) {
 
-				//gra.sprawdzenie(gracz.punkty, krupier.punkty);			// TUTATJ PRZEJECHAC PETLA PRZEZ posiadane karty i wyzerowac?
+				//gra.sprawdzenie(gracz.punkty, krupier.punkty);
 				gracz.punkty=0;
 				krupier.punkty=0;
 				talia1.temp=0;
@@ -166,7 +165,6 @@ int main(){
 							menu();
 
 							cout << "Losowanie kart";
-							 //   _sleep(1000);
 
 							cout << endl << endl << "GRACZ" << endl;
 							talia1.rozdanie();
@@ -250,7 +248,7 @@ int main(){
 									cout << "KRUPIER" << endl;
 									krupier.wyswietl_karty(1);
 									// krupier.wyswietl_pkt();
-									cout << endl << "Dobrac kolejna karte? (y/n)" << endl << endl;          // TUTAJ POWINNIEN BYC ALGORYTM DOBIERANI PRZEZ KRUPIERA, TO SAMO CO NA DOLE JAK WCISNIE SIE 2
+									cout << endl << "Dobrac kolejna karte? (y/n)" << endl << endl;
 									cin >> wybor3;
 								}
 							if(wybor3!='n' || wybor3!='N') {
@@ -299,8 +297,8 @@ int main(){
 					krupier.wyswietl_karty(k);
 					// cout << "TEST: ";
 					krupier.wyswietl_pkt();
-					// DOROBIC TUTAL ELMENT LOSOY, CZY KRUPIER DOPIERA CZY NIE, A JAK DOPIERA TO DO <=21 SUMY PKT
-                    if(krupier.punkty<20){
+
+                    if(krupier.punkty<21){
 					krupier.losowe_dobieranie();
 						if(krupier.temp2==1 || krupier.temp2==3) {
 						cout << "Krupier dobiera karte" << endl;
@@ -317,7 +315,7 @@ int main(){
 						}
 					}
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
-												// tuatj jak ktos da y to aby grac dalej
+
 					if(wybor2=='y' || wybor2=='Y') {
 						gracz.punkty=22;
 					}
@@ -335,8 +333,7 @@ int main(){
                 }
 			}
 
-		   }
-
+        }
 
 system("pause");
 }
