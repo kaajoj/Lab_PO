@@ -226,8 +226,8 @@ int main(){
 					gracz.wyswietl_karty(j);
 					gracz.wyswietl_pkt();
 					cout << "KRUPIER" << endl;
-					krupier.posiadane_karty[0];
-					krupier.wyswietl_pkt();
+					krupier.wyswietl_karty(1);
+					// krupier.wyswietl_pkt();
 
 					if(gracz.punkty<21){
 						cout << "Dobrac kolejna karte? (y/n)" << endl;
@@ -248,8 +248,8 @@ int main(){
 									gracz.wyswietl_karty(j);
 									gracz.wyswietl_pkt();
 									cout << "KRUPIER" << endl;
-									krupier.posiadane_karty[0];
-									krupier.wyswietl_pkt();
+									krupier.wyswietl_karty(1);
+									// krupier.wyswietl_pkt();
 									cout << "Dobrac kolejna karte? (y/n)" << endl << endl;          // TUTAJ POWINNIEN BYC ALGORYTM DOBIERANI PRZEZ KRUPIERA, TO SAMO CO NA DOLE JAK WCISNIE SIE 2
 									cin >> wybor3;
 								}
@@ -298,8 +298,6 @@ int main(){
 					krupier.wyswietl_karty(k);
 					// cout << "TEST: ";
 					krupier.wyswietl_pkt();
-
-
 					// DOROBIC TUTAL ELMENT LOSOY, CZY KRUPIER DOPIERA CZY NIE, A JAK DOPIERA TO DO <=21 SUMY PKT
                     if(krupier.punkty<20){
 					krupier.losowe_dobieranie();
@@ -313,7 +311,7 @@ int main(){
 							krupier.wyswietl_karty(k);
 							krupier.wyswietl_pkt();
 						} else cout << "Krupier nie dobiera karty" << endl;
-					}
+					}	
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
 												// tuatj jak ktos da y to aby grac dalej
 					if(wybor2=='y' || wybor2=='Y') {
