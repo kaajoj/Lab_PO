@@ -276,7 +276,7 @@ int main(){
 
 						}
 					}
-
+					krupier.wyswietl_pkt();
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
 
 					if(wybor2=='y' || wybor2=='Y') {
@@ -311,6 +311,7 @@ int main(){
 							krupier.wyswietl_karty(k);
 							krupier.wyswietl_pkt();
 						} else cout << "Krupier nie dobiera karty" << endl;
+						
 					}	
 					gra.sprawdzenie(gracz.punkty, krupier.punkty);
 												// tuatj jak ktos da y to aby grac dalej
